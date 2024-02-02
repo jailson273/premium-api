@@ -1,0 +1,940 @@
+{
+	"info": {
+		"_postman_id": "b59c416b-aea4-47d0-aa08-d09b51b23476",
+		"name": "Premium",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jailson.souza@live.com\",\r\n    \"password\": \"Admin@00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/auth/login",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify user rule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 4,\r\n    \"ruleCode\": \"UPDATE_USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/auth/verify-user-rule",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"auth",
+								"verify-user-rule"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "company create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"corporateName\": \"Premium Group ltda\",\r\n    \"fantasyName\": \"Premium\",\r\n    \"ie\": \"369879750201\",\r\n    \"document\": \"04430166000107\",\r\n    \"documentType\": \"CNPJ\",\r\n    \"category\": \"LTDA\",\r\n    \"cnae\": \"123456789\",\r\n    \"headCompany\": true,\r\n    \"phones\": [\r\n        {\r\n            \"ddi\": \"55\",\r\n            \"ddd\": \"17\",\r\n            \"number\": \"38752422\",\r\n            \"phoneType\": \"FIXO\",\r\n            \"default\": true\r\n        },\r\n        {\r\n            \"ddi\": \"55\",\r\n            \"ddd\": \"17\",\r\n            \"number\": \"993716723\",\r\n            \"phoneType\": \"MOVEL\",\r\n            \"default\": false\r\n        }\r\n    ],\r\n    \"addresses\": [\r\n        {\r\n            \"postalCode\": \"07056140\",\r\n            \"street\": \"Rua Lord Baden Powell\",\r\n            \"number\": \"189\",\r\n            \"neighborhood\": \"Vila Renata\",\r\n            \"city\": \"Guarulhos\",\r\n            \"state\": \"São Paulo\",\r\n            \"uf\": \"SP\",\r\n            \"addressType\": \"Comercio\",\r\n            \"billing\": true,\r\n            \"shipping\": true,\r\n            \"complement\": \"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/company",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/company",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/company/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"company",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/company",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "company delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/company",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "address",
+			"item": [
+				{
+					"name": "address create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"postalCode\": \"14711138\",\r\n    \"street\": \"Avenida Professor Francisco Velloso\",\r\n    \"number\": \"389\",\r\n    \"neighborhood\": \"Distrito Industrial I\",\r\n    \"city\": \"Bebedouro\",\r\n    \"state\": \"São Paulo\",\r\n    \"uf\": \"SP\",\r\n    \"addressType\": \"Comercio\",\r\n    \"billing\": true,\r\n    \"shipping\": true,\r\n    \"companyId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/address",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "address getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/address/billing",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"address",
+								"billing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "address get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/address/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"address",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "address update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/address/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"address",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "address delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/address/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"address",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "employee create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jailson de Souza\",\r\n    \"email\": \"jailson.souza@liva.com\",\r\n    \"companyId\": 4,\r\n    \"occupation\": \"Manager\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/employee",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/employee",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/employee/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/employee/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/employee/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"andre.padua.lana@gmail.com\",\r\n    \"password\": \"admnet@01\",\r\n    \"employeeId\": 1,\r\n    \"userGroupId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/user",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user getAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-url}}/user",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-url}}/user/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/user/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/user/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user-group",
+			"item": [
+				{
+					"name": "user-group create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Buyer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/user-group",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-group add rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ruleCodes\": [\r\n\"delete-customer\",\r\n\"read-address\",\r\n\"read-phone\",\r\n\"delete-provider\",\r\n\"read-user\",\r\n\"delete-user-rule\",\r\n\"create-employee\",\r\n\"read-company\",\r\n\"create-phone\",\r\n\"update-provider\",\r\n\"create-user\",\r\n\"update-user-rule\",\r\n\"update-customer\",\r\n\"create-customer\",\r\n\"update-phone\",\r\n\"create-stock\",\r\n\"update-user\",\r\n\"read-employee\",\r\n\"read-customer\",\r\n\"read-product\",\r\n\"update-stock\",\r\n\"create-user-group\",\r\n\"update-employee\",\r\n\"update-address\",\r\n\"create-product\",\r\n\"delete-stock\",\r\n\"read-user-group\",\r\n\"delete-company\",\r\n\"create-log\",\r\n\"delete-product\",\r\n\"read-stock-config\",\r\n\"delete-user-group\",\r\n\"delete-address\",\r\n\"read-log\",\r\n\"update-product\",\r\n\"create-stock-config\",\r\n\"update-user-group\",\r\n\"delete-employee\",\r\n\"update-log\",\r\n\"create-provider\",\r\n\"update-stock-config\",\r\n\"create-user-rule\",\r\n\"create-company\",\r\n\"delete-log\",\r\n\"read-provider\",\r\n\"delete-stock-config\",\r\n\"read-user-rule\"\r\n]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/user-group/1/user-rule",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-group",
+								"1",
+								"user-rule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-group remove rule",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ruleCodes\": [\"CREATE_USER\",\"READ_USER\", \"UPDATE_USER\", \"DELETE_USER\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/user-group/2/user-rule",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-group",
+								"2",
+								"user-rule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-group getAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-url}}/user-group",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-group get by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-url}}/user-group/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-group update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/user-group/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-group delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/user-group/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user-rule",
+			"item": [
+				{
+					"name": "user-rule create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"teste rule fila de eventos\",\r\n    \"action\": \"read\",\r\n    \"module\": \"event-queue-andre-phone\",\r\n    \"description\": \"permite fazer a leitura de todos os eventos pendentes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/user-rule",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-rule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-rule getAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base-url}}/user-rule",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-rule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-rule get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/user-rule/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-rule",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-rule update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/user-rule/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-rule",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-rule delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/user-rule/:id",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"user-rule",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const baseUrl = pm.environment.get(\"base-url\")",
+					"const endPoint = `${baseUrl}/auth/login`",
+					"const email = pm.environment.get(\"email\")",
+					"const password = pm.environment.get(\"password\")",
+					"const payload = { email: email, password: password }",
+					"",
+					"console.log(\"endPoint\", endPoint)",
+					"console.log(\"payload\", payload)",
+					"",
+					"pm.sendRequest({",
+					"    url: endPoint,",
+					"    method: \"POST\",",
+					"    header: \"Content-Type:application/json\",",
+					"    body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify(payload),",
+					"    }",
+					"}, function (err, response) {",
+					"    if (err) {",
+					"        console.log(\"error ao realizar login\", err)",
+					"        return",
+					"    }",
+					"",
+					"    const data = response.json()",
+					"    console.log(data)",
+					"    pm.environment.set(\"accessToken\", data.accessToken)",
+					"})",
+					"",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

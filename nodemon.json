@@ -1,0 +1,12 @@
+{
+    "watch": [
+        "src"
+    ],
+    "ext": "ts,json,js",
+    "ignore": [
+        "dist",
+        "node_modules",
+        "src/**/*.test.ts"
+    ],
+    "exec": "tsc && node -r module-alias/register -r dotenv/config ./dist/server.js dotenv_config_path=./config/.env.example"
+}

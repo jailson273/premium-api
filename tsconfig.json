@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "commonjs",
+        "allowJs": true,
+        "strict": false,
+        "removeComments": true,
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "lib": ["ES6", "DOM"],
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "@app/*": ["./src/app/*"],
+            "@app-config": ["./src/app-config"],
+            "@api/*": ["src/api/*"],
+            "@util/*": ["./src/util/*"],
+            "@seed/*": ["./src/seed/*"],
+            "@connection-database": ["./src/connection-database"],
+            "@container": ["./src/container"],
+            "@external/*": ["./src/external/*"]
+        }
+    },
+    "exclude": ["dist/**/*", "node_modules/**/*"],
+    "include": ["src/**/*"]
+}
